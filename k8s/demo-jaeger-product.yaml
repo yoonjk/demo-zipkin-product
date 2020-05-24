@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo-product
-        image: nexweb1/demo-zipkin-product:0.32
+        image: nexweb1/demo-zipkin-product:0.33
         ports:
         - containerPort: 8081
         env:
