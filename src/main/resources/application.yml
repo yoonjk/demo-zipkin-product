@@ -4,11 +4,14 @@ spring:
   application:
     name: zipkin-product
   zipkin:
-    baseUrl: http://${ZIPKIN_HOST}:${ZIPKIN_PORT}/
-  sleuth:
-    enabled: true
-    sampler:
-      probability: 1.0
-sample:
-  zipkin:
-    enabled: true
+#    baseUrl: http://${ZIPKIN_HOST}:${ZIPKIN_PORT}/
+#  sleuth:
+#    enabled: true
+#    sampler:
+#      probability: 1.0
+
+opentracing:
+  jaeger:
+    udp-sender:
+      host: ${JAEGER_AGENT}
+      port: ${JAEGER_AGENT_PORT}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-product
+  labels:
+    app: demo-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-product
+  template:
+    metadata:
+      labels:
+        app: demo-product
+    spec:
+      containers:
+      - name: demo-product
+        image: nexweb1/demo-zipkin-product:0.32
+        ports:
+        - containerPort: 8081
+        env:
+        - name: JAEGER_AGENT
+          value: jaeger-agent.kube-system
+        - name: JAEGER_AGENT_PORT
+          value: "6831"
